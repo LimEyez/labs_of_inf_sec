@@ -1,0 +1,105 @@
+.flex {
+    display: flex;
+}
+
+.flexDirrectionColumn {
+    flex-direction: column;
+}
+
+.flexDirrectionRow {
+    flex-direction: row;
+}
+
+.allCenterFlex {
+    align-items: center;
+    justify-content: center;
+}
+
+
+.blockLink {
+    min-width: 250px;
+    max-width: 300px;
+
+    min-height: 100px;
+
+    text-align: center;
+
+    background-color: rgba(193, 193, 255, 0.568);
+
+    color: #fff;
+
+    border-radius: 5px;
+
+    margin: 0 10px 10px 0;
+
+    transition-duration: 0.3s;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 5px;
+}
+
+.blockWithBlocksLinks {
+    min-width: 700px;
+    max-width: 900px;
+    width: 90%;
+}
+
+.blockWithBlocks {
+    min-width: 700px;
+    max-width: 900px;
+    width: 90%;
+}
+
+.standartButton {
+    border-style: solid;
+    border-color: rgb(193, 193, 255);
+    border-radius: 5px;
+    border-width: 1px;
+
+    width: 150px;
+
+    color: rgb(193, 193, 255);
+
+    transition-duration: 0.3s;
+}
+
+.standartButton:hover {
+
+    border-color: rgb(255, 255, 255);
+    background-color: rgb(193, 193, 255);
+    color: rgb(255, 255, 255);
+}
+
+.blockLink:hover {
+    border-color: rgb(255, 255, 255);
+    background-color: rgb(193, 193, 255);
+    color: rgb(255, 255, 255);
+}
+
+
+.buttonMainMenu{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 120px;
+    height: 50px;
+  
+    background-color: rgba(193, 193, 255, 0.568);
+  
+    color: #ffffff;
+  
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 5px;
+  
+    transition-duration: 0.3s;
+  }
+  
+  .buttonMainMenu:hover {
+    border-color: rgb(255, 255, 255);
+    background-color: rgb(193, 193, 255);
+    color: rgb(255, 255, 255);
+  }
