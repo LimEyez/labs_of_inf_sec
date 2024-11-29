@@ -110,17 +110,19 @@ export default function Lab3() {
             <div className="block flex allCenterFlex flexDirrectionColumn ">
                 <p>Введите шифруемое сообщение </p>
                 <textarea ref={refMessage} className="messageTextarea"></textarea>
-                <button onClick={encryptMessage} className="standartButton">Зашифровать сообщение</button>
                 <p>Зашифрованное сообщение:</p>
                 <textarea ref={refEncryptMessage} readOnly={true} className="messageTextarea"></textarea>
             </div>
 
-            <button onClick={decryptMessage} className="standartButton">Расшифровать сообщение</button>
+            <button onClick={encryptMessage} className="standartButton">Зашифровать сообщение</button>
+
         
             <div className="block flex allCenterFlex flexDirrectionColumn ">
                 <p>Расшифрованное сообщение:</p>
                 <textarea ref={refDecryptMessage} readOnly={true} className="messageTextarea"></textarea>
             </div>
+
+            <button onClick={decryptMessage} className="standartButton">Расшифровать сообщение</button>
 
         </div>
     )
