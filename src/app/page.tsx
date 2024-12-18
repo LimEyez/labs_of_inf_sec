@@ -9,7 +9,8 @@ export default function Home() {
   const PageOfLabs = [
     {title: 'Одноалфавитное \n шифрование', titleOfLab: 'Lab1', href: 'lab1'},
     {title: 'Шифрование \n ADFGVX', titleOfLab: 'Lab2', href: 'lab2'},
-    {title: 'Шифрование \n RC5', titleOfLab: 'Lab3', href: 'lab3'}
+    {title: 'Шифрование \n RC5', titleOfLab: 'Lab3', href: 'lab3'},
+    {title: 'Шифрование \n RSA', titleOfLab: 'Lab5', href: 'lab5'}
   ]
 
   return (
