@@ -10,7 +10,8 @@ export default function Home() {
     {title: 'Одноалфавитное \n шифрование', titleOfLab: 'Lab1', href: 'lab1'},
     {title: 'Шифрование \n ADFGVX', titleOfLab: 'Lab2', href: 'lab2'},
     {title: 'Шифрование \n RC5', titleOfLab: 'Lab3', href: 'lab3'},
-    {title: 'Шифрование \n RSA', titleOfLab: 'Lab5', href: 'lab5'}
+    {title: 'Шифрование \n RSA', titleOfLab: 'Lab5', href: 'lab5'},
+    {title: 'Хэш-функция', titleOfLab: 'Lab6', href: 'lab6'}
   ]
 
   return (

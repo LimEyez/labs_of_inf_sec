@@ -1,4 +1,69 @@
-import { CustomError } from '@/Classes/CustomError.ts'
+export class Lab_6{
+    constructor(keyWord =  "keyWord"){
+        this.keyWord = keyWord;
+        this.W = 32;
+        this.R = 12;
+    }
+
+    hash(text = 'ШифрТекст'){
+        const textEncoder = new TextEncoder('utf-8');
+        const textDecoder = new TextDecoder('utf-8');
+
+        let run = true;
+        let H = this.keyWord;
+        const textBytes = textEncoder.encode(text);
+
+        for (let i = 0; i < textBytes.length; i += this.W/4) {
+            let M = textBytes.slice(i, i + this.W/4);
+            // Проверяем, нужно ли дополнить блок
+            if (M.length < this.W4) {
+                let padding = new Uint8Array(this.W/4 - M.length);
+                M = new Uint8Array([...M, ...padding]);  // Дополняем нулевыми байтами
+                run = false;
+            }
+            // console.log(H)
+            const Algorithm = new Lab_3({Key: H})
+            let encryptedBlock = Algorithm.encryptBlock(M);
+            
+
+            let HBytes = this.byteSum(encryptedBlock, M);
+            
+            // console.log(textDecoder.decode(HBytes), HBytes)
+            // H = textDecoder.decode(HBytes);
+            H = HBytes;
+
+            if (!run) {
+                break;
+            }
+        }
+        return(this.toHexString(H))
+    }
+
+    byteSum(arr1, arr2) {
+        const length = Math.max(arr1.length, arr2.length);
+    
+        const result = new Uint8Array(length);
+    
+        for (let i = 0; i < length; i++) {
+          
+            const byte1 = arr1[i] || 0;
+            const byte2 = arr2[i] || 0;
+    
+          
+            result[i] = (byte1 + byte2) & 0xFF; // Приведение результата в диапазон [0, 255]
+        }
+    
+        return result;
+    }
+
+    toHexString(uint8Array) {
+        return Array.from(uint8Array)
+            .map(byte => byte.toString(16).padStart(2, '0'))
+            .join('');
+    }
+}
+
+
 
 export class Lab_3 {
     constructor({ W = 32, R = 12, Key = "keyWord" } = {}) {
@@ -7,7 +72,7 @@ export class Lab_3 {
         this.W4 = Math.floor(this.W / 4)
         this.R = this.checkR(R);
         this.key = Key;
-        console.log(this.key)
+        // console.log(this.key)
         this.b = Key.length;
         
         if (this.b > 255) {
@@ -15,7 +80,11 @@ export class Lab_3 {
         }
         
         this.T = 2 * (this.R + 1);
-        this.Uint8ArrayKey = new TextEncoder().encode(this.key);
+        if (typeof this.key === "string") {
+            this.Uint8ArrayKey = new TextEncoder().encode(this.key);
+        } else {
+            this.Uint8ArrayKey = this.key;
+        }
         
         //Константы P и Q
         const [P, Q] = this.generateConstants();
@@ -34,7 +103,6 @@ export class Lab_3 {
         this.extendedKeyTable();
         this.mixing();
 
-        // console.log(this)
     }
     // Проверка введенного W
     checkW(W) {
